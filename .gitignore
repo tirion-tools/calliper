@@ -1,0 +1,10 @@
+# Public repo holds README + docs + issue/wiki + GitHub Releases.
+# No build, no source – just keep editor and OS noise out.
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
