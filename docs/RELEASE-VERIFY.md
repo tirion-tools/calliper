@@ -120,8 +120,9 @@ A failure here means one of:
 1. **The file is not what Calliper published.** Don't install it. Re-download from the official Releases page over HTTPS.
 2. **You're verifying an old version's signature against a new binary** (or vice versa). Re-download the matched sidecar files.
 3. **You're checking against a forked workflow.** The cert-identity regex must match `tirion-tools/calliper-source/.github/workflows/release.yml`. If you're seeing a different identity, you have the wrong file.
+4. **Your network is intercepting Sigstore.** Some consumer routers and ISP-supplied gateways ship with built-in content filters ("SafeBrowse", "SafeSearch", "Parental Controls", etc.) that quietly intercept HTTPS connections to `rekor.sigstore.dev` and return a captive-portal redirect instead. slsa-verifier surfaces this as a TLS handshake error against Rekor, not as a signature failure. Whitelist `*.sigstore.dev` in your router, turn the filter off, or run the verification from a different network. A phone hotspot is the fastest test.
 
-If 1–3 all check out and verification still fails, please open an issue with the verification output and the SHA-256 of your downloaded binary. The Rekor transparency log ([rekor.sigstore.dev](https://rekor.sigstore.dev)) is the authoritative record. Every signature we publish lands there within seconds, immutably.
+If 1–4 all check out and verification still fails, please open an issue with the verification output and the SHA-256 of your downloaded binary. The Rekor transparency log ([rekor.sigstore.dev](https://rekor.sigstore.dev)) is the authoritative record. Every signature we publish lands there within seconds, immutably.
 
 ---
 

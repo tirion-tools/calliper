@@ -141,8 +141,8 @@ The format and every parser Calliper uses are open source under permissive licen
 | [`libnrbf`](https://github.com/tirion-tools/libnrbf) | .NET Binary Remoting Format (NRBF / MS-NRBP) reader. Visitor API, forward-ref string dictionary, handles the lpstr varint length convention. | MIT |
 | [`libpesession`](https://github.com/tirion-tools/libpesession) | SentryOne / SolarWinds `.pesession` reader. Walks the NRBF tree, decodes queryanalysis / runtime / TraceRowEx streams, and converts to osession. | MIT |
 | [`libxesession`](https://github.com/tirion-tools/libxesession) | SQL Server Extended Events session reader (`.xel` / ring-buffer XML). Used by live capture to ingest server-side events. | MIT |
-| [`libliveconnect`](https://github.com/tirion-tools/libliveconnect) | ODBC connector wrapping nanodbc for the live-capture + script-execution paths. Server-version probing, async cancel, integrated/SQL auth. | MIT |
 | [`libosession`](https://github.com/tirion-tools/libosession) | SQLite container format: plans, plan_snapshots, statements, runtime, trace_streams, waits, objects, statement_results, items. Includes deflate-compressed trace-event batches and the schema docs. | MIT |
+| [`libliveconnect`](https://github.com/tirion-tools/libliveconnect) | ODBC connector wrapping nanodbc for the live-capture + script-execution paths. Archived: folded into the Calliper app once it shrank to a thin nanodbc wrapper. | MIT (archived) |
 
 Library READMEs cover the on-disk layout in detail. The osession schema is stable enough that any consumer (Python, Go, .NET) can read a Calliper capture by just opening it as SQLite.
 
